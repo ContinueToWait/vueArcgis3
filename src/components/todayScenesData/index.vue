@@ -1,0 +1,536 @@
+<template>
+  <div class="mainBox">
+      <div class="title"><img src="./../../assets/images/comm/jt.png" class="titImg">今日场景统计</div>
+      <vue-seamless-scroll :data="list" class="seamless-warp"  :class-option="classOption">
+        <el-row class="typeItem" v-for="(item,index) in list" :key="index">
+          <el-col :span="6" class="leftBox">
+            <el-card>
+              <!-- <img :src="require('./../../assets/images/leftScenes/'+item.img+'.png')"> -->
+              <div>
+                <span>{{item.type}}</span>
+              </div>
+            </el-card>
+          </el-col>
+          <el-col :span="18"  class="rightBox">
+              <el-row class="item" v-for="(child,ind) in item.children" :key="ind">
+                <el-col :span="6" >
+                  <span>{{child.name}}</span>
+                </el-col>
+                <el-col :span="18" >
+                  <el-progress :percentage="child.val" :color="child.color"></el-progress>
+                </el-col>
+              </el-row>
+          </el-col>
+        </el-row>
+      </vue-seamless-scroll>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      list:[
+        {
+          type:"政府机关",
+          img:"xuexiao",
+          children:[
+            {
+              name:"委办局",
+              val:80,
+              color:"#00A0E8",
+            }
+          ]
+        },
+        {
+          type:"学校",
+          img:"xuexiao",
+          children:[
+            {
+              name:"幼儿园",
+              val:20,
+              color:"#CE595F",
+            },
+            {
+              name:"小学",
+              val:60,
+              color:"#1BC85D",
+            },
+            {
+              name:"中学",
+              val:40,
+              color:"#00A0E8",
+            },
+            {
+              name:"大学",
+              val:80,
+              color:"#6f7ad3",
+            },
+            {
+              name:"技校",
+              val:70,
+              color:"#FEC107",
+            },
+            {
+              name:"职高",
+              val:50,
+              color:"#f74db4",
+            },
+            {
+              name:"其它",
+              val:100,
+              color:"#1de0ce",
+            }
+          ]
+        },
+        {
+          type:"医疗",
+          img:"xuexiao",
+          children:[
+            {
+              name:"医院",
+              val:90,
+              color:"#CE595F",
+            },
+            {
+              name:"卫生院",
+              val:70,
+              color:"#1BC85D",
+            },
+            {
+              name:"卫生室",
+              val:60,
+              color:"#00A0E8",
+            },
+            {
+              name:"其它",
+              val:20,
+              color:"#1de0ce",
+            },
+
+          ]
+        },
+        {
+          type:"社区",
+          img:"xuexiao",
+          children:[
+            {
+              name:"社区",
+              val:80,
+              color:"#00A0E8",
+            }
+          ]
+        },
+        {
+          type:"住宿",
+          img:"xuexiao",
+          children:[
+            {
+              name:"旅馆",
+              val:20,
+              color:"#CE595F",
+            },
+            {
+              name:"招待所",
+              val:60,
+              color:"#1BC85D",
+            },
+            {
+              name:"宾馆",
+              val:40,
+              color:"#00A0E8",
+            },
+            {
+              name:"酒店",
+              val:80,
+              color:"#6f7ad3",
+            },
+            {
+              name:"其它",
+              val:100,
+              color:"#1de0ce",
+            }
+          ]
+        },
+        {
+          type:"市场",
+          img:"xuexiao",
+          children:[
+            {
+              name:"农贸市场",
+              val:20,
+              color:"#CE595F",
+            },
+            {
+              name:"花卉市场",
+              val:60,
+              color:"#1BC85D",
+            },
+            {
+              name:"虫鸟市场",
+              val:40,
+              color:"#00A0E8",
+            },
+            {
+              name:"建材市场",
+              val:80,
+              color:"#6f7ad3",
+            },
+            {
+              name:"古玩市场",
+              val:70,
+              color:"#FEC107",
+            }
+          ]
+        },
+        {
+          type:"商铺",
+          img:"xuexiao",
+          children:[
+            {
+              name:"理发店",
+              val:20,
+              color:"#CE595F",
+            },
+            {
+              name:"餐饮",
+              val:60,
+              color:"#1BC85D",
+            },
+            {
+              name:"零售",
+              val:40,
+              color:"#00A0E8",
+            },
+            {
+              name:"药店",
+              val:80,
+              color:"#6f7ad3",
+            },
+            {
+              name:"辅导机构",
+              val:70,
+              color:"#FEC107",
+            },
+            {
+              name:"中介机构",
+              val:50,
+              color:"#f74db4",
+            },
+            {
+              name:"其它",
+              val:100,
+              color:"#1de0ce",
+            }
+          ]
+        },
+        {
+          type:"商业综合体",
+          img:"xuexiao",
+          children:[
+            {
+              name:"赛格国际",
+              val:80,
+              color:"#CE595F",
+            },
+            {
+              name:"万达广场",
+              val:100,
+              color:"#1BC85D",
+            },
+            {
+              name:"世纪金花",
+              val:70,
+              color:"#00A0E8",
+            }
+          ]
+        },
+        {
+          type:"企业",
+          img:"xuexiao",
+          children:[
+            {
+              name:"房地产",
+              val:80,
+              color:"#CE595F",
+            },
+            {
+              name:"银行",
+              val:100,
+              color:"#1BC85D",
+            },
+            {
+              name:"保险",
+              val:70,
+              color:"#00A0E8",
+            },
+            {
+              name:"商贸公司",
+              val:80,
+              color:"#6f7ad3",
+            },
+            {
+              name:"律师事务所",
+              val:70,
+              color:"#FEC107",
+            },
+            {
+              name:"其它",
+              val:100,
+              color:"#1de0ce",
+            }
+          ]
+        },
+        {
+          type:"园区",
+          img:"xuexiao",
+          children:[
+            {
+              name:"工业园区",
+              val:80,
+              color:"#CE595F",
+            },
+            {
+              name:"科技园区",
+              val:100,
+              color:"#1BC85D",
+            },
+            {
+              name:"综合性园区",
+              val:70,
+              color:"#00A0E8",
+            },
+            {
+              name:"其它",
+              val:100,
+              color:"#1de0ce",
+            }
+          ]
+        },
+        {
+          type:"交通枢纽",
+          img:"xuexiao",
+          children:[
+            {
+              name:"机场",
+              val:80,
+              color:"#CE595F",
+            },
+            {
+              name:"汽车站",
+              val:100,
+              color:"#1BC85D",
+            },
+            {
+              name:"火车站",
+              val:70,
+              color:"#00A0E8",
+            }
+          ]
+        },
+        {
+          type:"交通服务",
+          img:"xuexiao",
+          children:[
+            {
+              name:"加油站",
+              val:80,
+              color:"#CE595F",
+            },
+            {
+              name:"加气站",
+              val:100,
+              color:"#1BC85D",
+            },
+            {
+              name:"高速公路服务区",
+              val:70,
+              color:"#00A0E8",
+            },
+            {
+              name:"充电站",
+              val:80,
+              color:"#6f7ad3",
+            },
+            {
+              name:"其它",
+              val:100,
+              color:"#1de0ce",
+            }
+          ]
+        },
+        {
+          type:"商务楼宇",
+          img:"xuexiao",
+          children:[
+            {
+              name:"商务楼宇",
+              val:80,
+              color:"#00A0E8",
+            }
+          ]
+        },
+        {
+          type:"居民小区",
+          img:"xuexiao",
+          children:[
+            {
+              name:"居民小区",
+              val:80,
+              color:"#00A0E8",
+            }
+          ]
+        },
+        {
+          type:"民宅",
+          img:"xuexiao",
+          children:[
+            {
+              name:"私人自建",
+              val:80,
+              color:"#6f7ad3",
+            },
+            {
+              name:"城中村",
+              val:70,
+              color:"#FEC107",
+            },
+            {
+              name:"农村",
+              val:50,
+              color:"#f74db4",
+            },
+          ]
+        },
+        {
+          type:"文化旅游",
+          img:"xuexiao",
+          children:[
+            {
+              name:"公园",
+              val:80,
+              color:"#CE595F",
+            },
+            {
+              name:"宗教场所",
+              val:100,
+              color:"#1BC85D",
+            },
+            {
+              name:"广场",
+              val:70,
+              color:"#00A0E8",
+            },
+            {
+              name:"景区",
+              val:80,
+              color:"#6f7ad3",
+            },
+            {
+              name:"剧院",
+              val:70,
+              color:"#FEC107",
+            },
+            {
+              name:"博物馆",
+              val:50,
+              color:"#f74db4",
+            },
+            {
+              name:"动物园",
+              val:100,
+              color:"#1de0ce",
+            },
+            {
+              name:"游乐场",
+              val:70,
+              color:"#CE595F",
+            },
+            {
+              name:"图书馆",
+              val:50,
+              color:"#1BC85D",
+            },
+          ]
+        },
+        {
+          type:"村委会",
+          img:"xuexiao",
+          children:[
+            {
+              name:"村委会",
+              val:80,
+              color:"#00A0E8",
+            }
+          ]
+        },
+      ]
+    };
+  },
+
+  computed:{
+    classOption() {
+      return {
+        step: .8, // 数值越大速度滚动越快
+        limitMoveNum: 1, // 开始无缝滚动的数据量 this.dataList.length
+        hoverStop: true, // 是否开启鼠标悬停stop
+        direction: 1, // 0向下 1向上 2向左 3向右
+        // openWatch: true, // 开启数据实时监控刷新dom
+        singleHeight: 0, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction => 0/1
+        singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction => 2/3
+        waitTime: 1000, // 单步运动停止的时间(默认值1000ms)
+      };
+    },
+  },
+
+  mounted() {
+    
+  },
+  methods: {
+   
+  },
+
+  created() {
+
+  },
+};
+</script>
+<style  lang="scss" scoped>
+.mainBox{
+  .seamless-warp {
+    width:100%;
+    height: calc(100% - 3.125rem /* 50/16 */);
+    overflow: hidden;
+  }
+  .typeItem{
+    margin-bottom: .3125rem /* 5/16 */;
+  }
+  .leftBox{
+    text-align: center;
+    padding:0 .625rem /* 10/16 */;
+    img{
+      width: 65%;
+    }
+  }
+  .rightBox{
+    text-align: left;
+    padding: .3125rem /* 5/16 */ 0;
+    .item{
+      padding-bottom: .3125rem /* 5/16 */;
+      font-size:.8125rem /* 13/16 */;
+    }
+  }
+  .el-card{
+    border: none;
+    background:transparent;
+    color:#CACCD9;
+    >>>.el-card__body{
+      padding: 0;
+    }
+  }
+  >>>.el-progress__text{
+    color:#CACCD9;
+  }
+
+}
+  
+</style>
