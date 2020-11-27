@@ -1,11 +1,5 @@
 
-// 杨泽
 let httpUrl = "http://192.168.124.57:7012";
-// 焦明明
-// let httpUrl = "http://192.168.124.61:7012";
-// 张英
-// let httpUrl ="http://192.168.124.82:7071";
-
 // 内网发布地址
 // let httpUrl = "http://192.168.124.15"
 
@@ -34,7 +28,7 @@ let MapServer = {
 		label: http14 + "/arcgis/rest/services/shanxi/yingxiang/MapServer"
 	},
 
-	// 17大类图层
+	// 动态服务图层
 	// type:"http://192.168.124.14:6080/arcgis/rest/services/shanxi/scene_type/MapServer",
 	type: http14 + "/arcgis/rest/services/shanxi/scene_type/MapServer",
 	// 网格、微格
